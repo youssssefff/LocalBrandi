@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:local_brand/models/user.dart';
 import 'package:local_brand/providers/userProvider.dart';
 import 'package:local_brand/screens/home_screen.dart';
+import 'package:local_brand/screens/tabs.dart';
 import 'package:local_brand/widgets/global/Buttons/big_button.dart';
 import 'package:local_brand/widgets/global/form_text_field.dart';
 import 'package:local_brand/widgets/global/secondry_title.dart';
@@ -28,8 +29,13 @@ class _SignUpFormState extends ConsumerState<SignUpForm> {
 
   final _lastNameController = TextEditingController();
 
-  Future<Map<String, dynamic>> submitForm() async {
-    final email = _emailController
+  void submitForm()  {
+    Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (context) => Tabs(), // Replace with your widget
+        ));
+    /*final email = _emailController
         .text; // Assuming you have TextEditingControllers for each field
     final password = _passwordController.text;
     final firstName = _firstNameController.text;
@@ -67,7 +73,7 @@ class _SignUpFormState extends ConsumerState<SignUpForm> {
         'statusCode': -1, // or any other appropriate error status code
         'body': 'Error during sign-in: $error',
       };
-    }
+    }*/
   }
 
   @override
